@@ -1,0 +1,47 @@
+<!-- <div class="admin-sidebar">
+    <div class="logo">
+        <img src="../../../assets/images/logo.png" />
+    </div>
+    <div class="links">
+        <ul>
+            <li>
+                <a routerLink="/dashbroad"><i class="pi pi-home"></i>Dashbroad</a>
+            </li>
+            <li>
+                <a routerLink="/products"><i class="pi pi-briefcase"></i>Products</a>
+            </li>
+            <li>
+                <a routerLink="/categories"><i class="pi pi-list"></i>Categories</a>
+            </li>
+            <li>
+                <a routerLink="/orders"><i class="pi pi-shopping-cart"></i>Orders</a>
+            </li>
+            <li>
+                <a routerLink="/users"><i class="pi pi-users"></i>Users</a>
+            </li>
+            <li>
+                <a class="logout" (click)="logoutUser()"><i class="pi pi-sign-out"></i>Logout</a>
+            </li>
+        </ul>
+    </div>
+</div> -->
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+    <div class="logo-container">
+        <button class="logo" (click)="toggleCollapse()">A</button>
+        <div class="logo-text" @fadeInOut *ngIf="collapsed">ADMIN</div>
+        <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+            <i @rotate class="fa-solid fa-times fa-circle-xmark"></i>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <i class="sidenav-link-icon" [class]="data.icon"></i>
+                <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{ data.label }}</span>
+            </a>
+        </li>
+        <li>
+            <a class="logout" (click)="logoutUser()"><i class="pi pi-sign-out"></i>Logout</a>
+        </li>
+    </ul>
+</div>
