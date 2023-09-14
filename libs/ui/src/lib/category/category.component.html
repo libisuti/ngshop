@@ -1,0 +1,24 @@
+<!--
+      - CATEGORY
+    -->
+
+<div class="category">
+    <div class="container">
+        <div class="category-item-container has-scrollbar">
+            <div class="category-item" *ngFor="let category of categoryfollow">
+                <div class="category-img-box">
+                    <img [src]="category.image" width="30" />
+                </div>
+                <div class="category-content-box">
+                    <div class="category-content-flex">
+                        <h3 class="category-item-title">{{ category.name }}</h3>
+
+                        <p class="category-item-amount">(53)</p>
+                    </div>
+
+                    <a href="#" class="category-btn">Show all</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

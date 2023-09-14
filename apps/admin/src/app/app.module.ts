@@ -44,6 +44,14 @@ import { HeaderComponent } from './header/header.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { NgChartsModule } from 'ng2-charts';
+
+import { ChartjsComponent } from './pages/chartjs/chartjs.component';
+
+import { SublevelMenuComponent } from './shared/sidebar/sublevel-menu.component';
+import { CategoriesModule } from './categories/categories.module';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+
 const UX_MODULE = [
     CardModule,
     InputSwitchModule,
@@ -79,7 +87,10 @@ const UX_MODULE = [
         OrdersListComponent,
         OrdersDetailComponent,
         BodyComponent,
-        HeaderComponent
+        HeaderComponent,
+        ChartjsComponent,
+
+        SublevelMenuComponent
     ],
     imports: [
         BrowserModule,
@@ -92,6 +103,9 @@ const UX_MODULE = [
         OverlayModule,
         CdkMenuModule,
         NgChartsModule,
+        CategoriesModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
         ...UX_MODULE
     ],
     providers: [CategoriesService, MessageService, ConfirmationService, UsersService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],

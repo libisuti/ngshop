@@ -10,6 +10,8 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { OrdersListComponent } from './orders/orders-list/orders-list.component';
 import { OrdersDetailComponent } from './orders/orders-detail/orders-detail.component';
 import { AuthGuard } from '@bluebits/users';
+import { CategoryFollowFormComponent } from './categories/categoryfollow/category-form/category-form.component';
+import { CategoryFollowListComponent } from './categories/categoryfollow/category-list/category-list.component';
 
 export const appRoutes: Route[] = [
     {
@@ -29,6 +31,7 @@ export const appRoutes: Route[] = [
             {
                 path: 'categories',
                 component: CategoriesListComponent
+                // loadChildren: () => import('./categories/categories.module').then((m) => m.CategoriesModule)
             },
             {
                 path: 'categories/form',
@@ -69,6 +72,19 @@ export const appRoutes: Route[] = [
             {
                 path: 'orders/:id',
                 component: OrdersDetailComponent
+            },
+            {
+                path: 'categoryfollow',
+                component: CategoryFollowListComponent
+            },
+
+            {
+                path: 'categoryfollow/form',
+                component: CategoryFollowFormComponent
+            },
+            {
+                path: 'categoryfollow/form/:id',
+                component: CategoryFollowFormComponent
             }
         ]
     }

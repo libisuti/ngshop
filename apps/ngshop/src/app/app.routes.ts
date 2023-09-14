@@ -4,7 +4,7 @@ import { ProductListComponent } from './pages/product-list/product-list.componen
 
 export const appRoutes: Route[] = [
     {
-        path: '',
+        path: 'home',
         component: HomePageComponent
     },
     {

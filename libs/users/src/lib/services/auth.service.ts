@@ -21,5 +21,6 @@ export class AuthService {
     logout() {
         this.token.removeToken();
         this.router.navigate(['/login']);
+        // window.location.href = '/login';
     }
 }

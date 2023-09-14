@@ -1,0 +1,31 @@
+<section>
+    <div class="container flex" *ngIf="product">
+        <div class="left">
+            <div class="main_image">
+                <img src="{{ product.image }}" class="slide" width="80%" />
+            </div>
+            <div class="option flex">
+                <img src="{{ product.image }}" class="slide" width="80%" />
+            </div>
+        </div>
+        <div class="right">
+            <h3>{{ product.name }}</h3>
+            <h4>{{ product.price | currency }}</h4>
+            <span class="price-before">{{ product.price + 200000 | currency }}</span>
+
+            <p>
+                {{ product.description }}
+            </p>
+            <div class="product-rating">
+                <p-rating [(ngModel)]="product.rating" [disabled]="true" [cancel]="false"></p-rating>
+            </div>
+            <label for="quantity">Quantity</label>
+            <div class="p-field p-col-12 p-md-3 p-p-0">
+                <p-inputNumber [(ngModel)]="quantity" mode="decimal" [showButtons]="true" inputId="quantity" [min]="1" [max]="100"> </p-inputNumber>
+            </div>
+            <button pButton pRipple type="button" label="Buy Now" class="p-button-rounded p-mr-2"></button>
+            <button pButton pRipple type="button" label="Add to Cart" class="p-button-rounded" (click)="addProductToCart()"></button>
+        </div>
+    </div>
+    <ui-you-also-may-like></ui-you-also-may-like>
+</section>

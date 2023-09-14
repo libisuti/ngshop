@@ -15,6 +15,10 @@ export class ProductsService {
     getProducts(): Observable<Product[]> {
         return this.http.get<Product[]>(this.apiURLProducts);
     }
+    getProductsByCategory(category: string): Observable<Product[]> {
+        const params = { categories: category };
+        return this.http.get<Product[]>(this.apiURLProducts, { params });
+    }
 
     getProduct(productId: string): Observable<Product> {
         return this.http.get<Product>(`${this.apiURLProducts}/${productId}`);
@@ -34,5 +38,8 @@ export class ProductsService {
 
     getProductsCount(): Observable<number> {
         return this.http.get<number>(`${this.apiURLProducts}/get/count`).pipe(map((objectValue: any) => objectValue.productCount));
+    }
+    getProductCountByCategory(categoryId: string): Observable<any> {
+        return this.http.get<any>(`${this.apiURLProducts}/get/count/${categoryId}`);
     }
 }

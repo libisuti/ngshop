@@ -1,0 +1,148 @@
+<div class="product-minimal">
+    <div class="product-showcase">
+        <h2 class="title">New Arrivals</h2>
+
+        <div class="showcase-wrapper has-scrollbar">
+            <div class="showcase-container">
+                <div class="showcase" *ngFor="let product of products.slice(0, 4)">
+                    <!-- <ng-container *ngIf="product && product.category && product.category.name === 'Jacket'"> -->
+
+                    <a class="showcase-img-box">
+                        <img [src]="product.image" width="70" class="showcase-img" />
+                    </a>
+
+                    <div class="showcase-content">
+                        <a href="#">
+                            <h4 class="showcase-title">{{ product.name }}</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Clothes</a>
+
+                        <div class="price-box">
+                            <p class="price">{{ product.price | currency }}</p>
+                            <del>$12.00</del>
+                        </div>
+                    </div>
+                    <!-- </ng-container> -->
+                </div>
+            </div>
+
+            <div class="showcase-container">
+                <div class="showcase" *ngFor="let product of products.slice(0, 4); let i = index">
+                    <a href="#" class="showcase-img-box">
+                        <img *ngIf="i < 4" [src]="product.image" class="showcase-img" width="70" />
+                    </a>
+
+                    <div class="showcase-content" *ngIf="i < 4">
+                        <a href="#">
+                            <h4 class="showcase-title">{{ product.name }}</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Winter wear</a>
+
+                        <div class="price-box">
+                            <p class="price" *ngIf="i < 4">{{ product.price | currency }}</p>
+                            <del *ngIf="i < 4"> $11.00</del>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-showcase">
+        <h2 class="title">Trending</h2>
+
+        <div class="showcase-wrapper has-scrollbar">
+            <div class="showcase-container">
+                <div class="showcase" *ngFor="let product of products.slice(0, 4); let i = index">
+                    <a href="#" class="showcase-img-box" *ngIf="i < 4">
+                        <img *ngIf="i < 4" [src]="product.image" width="70" class="showcase-img" />
+                    </a>
+
+                    <div class="showcase-content" *ngIf="i < 4">
+                        <a href="#">
+                            <h4 class="showcase-title" *ngIf="i < 4">{{ product.name }}</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category" *ngIf="i < 4">Sports</a>
+
+                        <div class="price-box" *ngIf="i < 4">
+                            <p class="price" *ngIf="i < 4">{{ product.price | currency }}</p>
+                            <del *ngIf="i < 4">$12.00</del>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-container">
+                <div class="showcase" *ngFor="let product of products.slice(0, 4); let i = index">
+                    <a href="#" class="showcase-img-box">
+                        <img *ngIf="i < 4" [src]="product.image" class="showcase-img" width="70" />
+                    </a>
+
+                    <div class="showcase-content" *ngIf="i < 4">
+                        <a href="#">
+                            <h4 class="showcase-title">{{ product.name }}</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Winter wear</a>
+
+                        <div class="price-box">
+                            <p class="price" *ngIf="i < 4">{{ product.price | currency }}</p>
+                            <del *ngIf="i < 4"> $11.00</del>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-showcase">
+        <h2 class="title">Top Rated</h2>
+
+        <div class="showcase-wrapper has-scrollbar">
+            <div class="showcase-container">
+                <div class="showcase" *ngFor="let product of products.slice(0, 4); let i = index">
+                    <a href="#" class="showcase-img-box">
+                        <img *ngIf="i < 4" [src]="product.image" class="showcase-img" width="70" />
+                    </a>
+
+                    <div class="showcase-content" *ngIf="i < 4">
+                        <a href="#">
+                            <h4 class="showcase-title">{{ product.name }}</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Winter wear</a>
+
+                        <div class="price-box">
+                            <p class="price" *ngIf="i < 4">{{ product.price | currency }}</p>
+                            <del *ngIf="i < 4"> $11.00</del>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-container">
+                <div class="showcase" *ngFor="let product of products.slice(0, 4); let i = index">
+                    <a href="#" class="showcase-img-box">
+                        <img *ngIf="i < 4" [src]="product.image" class="showcase-img" width="70" />
+                    </a>
+
+                    <div class="showcase-content" *ngIf="i < 4">
+                        <a href="#">
+                            <h4 class="showcase-title">{{ product.name }}</h4>
+                        </a>
+
+                        <a href="#" class="showcase-category">Winter wear</a>
+
+                        <div class="price-box">
+                            <p class="price" *ngIf="i < 4">{{ product.price | currency }}</p>
+                            <del *ngIf="i < 4"> $11.00</del>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

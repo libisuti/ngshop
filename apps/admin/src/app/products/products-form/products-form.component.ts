@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CategoriesService, Product, ProductsService } from '@bluebits/products';
+import { CategoriesService, CategoriesfollowService, Product, ProductsService } from '@bluebits/products';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
 import { Location } from '@angular/common';
@@ -18,6 +18,7 @@ export class ProductsFormComponent implements OnInit {
     form: FormGroup;
     isSubmited = false;
     categories = [];
+
     imageDisplay: string | ArrayBuffer;
     currentProductID: string;
 
@@ -25,6 +26,7 @@ export class ProductsFormComponent implements OnInit {
         private formBuiler: FormBuilder,
         private productsService: ProductsService,
         private categoriesService: CategoriesService,
+        private Categoriesfollowservice: CategoriesfollowService,
         private messageService: MessageService,
         private location: Location,
         private route: ActivatedRoute
@@ -50,7 +52,7 @@ export class ProductsFormComponent implements OnInit {
     }
 
     private _getcategories() {
-        this.categoriesService.getCategories().subscribe((categories) => {
+        this.Categoriesfollowservice.getCategoriesfollow().subscribe((categories) => {
             this.categories = categories;
         });
     }
@@ -94,6 +96,7 @@ export class ProductsFormComponent implements OnInit {
                 this.productsService.getProduct(params.id).subscribe((product) => {
                     this.productForm.name.setValue(product.name);
                     this.productForm.category.setValue(product.category.id);
+
                     this.productForm.brand.setValue(product.brand);
                     this.productForm.price.setValue(product.price);
                     this.productForm.countInStock.setValue(product.countInStock);
@@ -110,6 +113,8 @@ export class ProductsFormComponent implements OnInit {
     onSubmit() {
         this.isSubmited = true;
         if (this.form.invalid) return;
+
+        // FormData chỉ dùng cho multipart/form-data
 
         const productFormData = new FormData();
 

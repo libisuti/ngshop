@@ -1,0 +1,15 @@
+<!--
+      - CATEGORY
+    -->
+<div><h2 style="text-align: center">You also may like</h2></div>
+<div class="category">
+    <div class="container">
+        <div class="category-item-container has-scrollbar">
+            <div class="category-item" *ngFor="let product of products.slice(4)">
+                <div class="category-img-box" [routerLink]="['/product', product.id]">
+                    <img [src]="product.image" width="100%" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

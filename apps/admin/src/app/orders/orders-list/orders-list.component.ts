@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Order, OrdersService } from '@bluebits/orders';
-import { ORDER_STATUS } from '../order.contants';
+import { Order, OrdersService, ORDER_STATUS } from '@bluebits/orders';
+
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 @Component({

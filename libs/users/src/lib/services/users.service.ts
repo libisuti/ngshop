@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../models/user';
 import { environment } from '@env/environment';
 import * as countriesLib from 'i18n-iso-countries';
+import { UsersFacade } from '@bluebits/users';
 
 declare const require: (arg0: string) => countriesLib.LocaleData;
 
@@ -14,7 +15,7 @@ declare const require: (arg0: string) => countriesLib.LocaleData;
 export class UsersService {
     apiURLUsers = environment.apiUrl + 'users';
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private usersFacade: UsersFacade) {
         countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
     }
 
@@ -53,5 +54,17 @@ export class UsersService {
 
     getCountry(countryKey: string): string {
         return countriesLib.getName(countryKey, 'en');
+    }
+
+    initAppSession() {
+        this.usersFacade.buildUserSession();
+    }
+
+    observeCurrentUser() {
+        return this.usersFacade.currentUser$;
+    }
+
+    isCurrentUserAuth() {
+        return this.usersFacade.isAuthenticated$;
     }
 }

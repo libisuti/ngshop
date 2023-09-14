@@ -41,3 +41,22 @@
 h1 {
     color: #495057;
 }
+#chart {
+    // Các quy tắc CSS cho phần tử có ID "chart" ở tất cả các kích thước màn hình
+
+    @media screen and (max-width: 480px) {
+        // Các quy tắc CSS cho phần tử có ID "chart" ở màn hình nhỏ hơn hoặc bằng 480px
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+        // Các quy tắc CSS cho phần tử có ID "chart" ở màn hình từ 481px đến 768px
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+        // Các quy tắc CSS cho phần tử có ID "chart" ở màn hình từ 769px đến 1024px
+    }
+
+    @media screen and (min-width: 1025px) {
+        // Các quy tắc CSS cho phần tử có ID "chart" ở màn hình lớn hơn hoặc bằng 1025px
+    }
+}

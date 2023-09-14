@@ -1,0 +1,51 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card [header]="editmode ? 'Edit Product' : 'Add Product'" subheader="Add new or edit product here">
+        <div class="p-grid">
+            <div class="col-12 mb-5">
+                <p-toolbar>
+                    <div class="p-toolbar-group-right">
+                        <p-button (click)="onSubmit()" [label]="editmode ? 'Update' : 'Create'" icon="pi pi-plus" class="mr-2"></p-button>
+                        <p-button label="Cancel" icon="pi pi-arrow-circle-left" class="mr-2" styleClass="p-button-secondary" (click)="onCancle()"></p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="col-12">
+                <form [formGroup]="form">
+                    <div class="gird flex">
+                        <div class="flex flex-column gap-2 col-4">
+                            <label for="name">Name</label>
+                            <input formControlName="name" id="name" pInputText />
+                            <small *ngIf="productForm.name.invalid && isSubmited" class="p-error">Name is required</small>
+                        </div>
+                        <div class="flex flex-column gap-3">
+                            <label for="category">Category</label>
+
+                            <p-dropdown
+                                [options]="categories"
+                                formControlName="categories"
+                                optionLabel="name"
+                                optionValue="id"
+                                [filter]="true"
+                                filterBy="name"
+                                [showClear]="true"
+                                placeholder="Select a Category"
+                            ></p-dropdown>
+                            <small *ngIf="productForm.categories.invalid && isSubmited" class="p-error">category is required</small>
+                        </div>
+                        <div class="flex flex-column gap-2 col-4">
+                            <label for="name">Main Image</label>
+                            <input type="file" class="p-inputtext" accept="image/*" (change)="onImageUpload($event)" />
+                            <small *ngIf="productForm.image.invalid && isSubmited" class="p-error">Image is required</small>
+                            <div class="col-2 p-mt-2 p-pl-0">
+                                <img style="width: 100%" [src]="imageDisplay" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </p-card>
+</div>
